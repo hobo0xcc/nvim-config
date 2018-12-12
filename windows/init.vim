@@ -123,5 +123,4 @@ inoremap <S-Right> <ESC>$i<Right>
 nnoremap <space>n :bnext<CR>
 nnoremap <space>b :bprev<CR>
 tnoremap <C-c> <C-\><C-n>
-imap <S-Bs> <Del>
 nnoremap <space>j :w !trans -b -sl=en -tl=ja<CR>
