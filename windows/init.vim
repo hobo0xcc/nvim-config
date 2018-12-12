@@ -4,8 +4,8 @@ set title
 set ruler
 set autoindent
 set smartindent
-set tabstop=4
-set shiftwidth=4
+set tabstop=3
+set shiftwidth=3
 set noexpandtab
 set backspace=indent,eol,start
 set mouse=a
@@ -14,9 +14,6 @@ set clipboard+=unnamedplus
 syntax on
 set noswapfile
 set t_Co=256
-set expandtab
-set tabstop=4
-set shiftwidth=4
 set visualbell
 set noerrorbells
 set nobackup
@@ -119,7 +116,7 @@ inoremap <C-s> <Down>
 inoremap <C-d> <Right>
 inoremap <CR> <Return>
 nnoremap <C-c> i
-nnoremap <space>rc :e ~/.config/nvim/init.vim<CR>
+nnoremap <space>rc :e C:\Users\Masami\AppData\Local\nvim\init.vim<CR>
 nnoremap <space><space> ldiwh
 inoremap <S-Left> <ESC>^i
 inoremap <S-Right> <ESC>$i<Right>
