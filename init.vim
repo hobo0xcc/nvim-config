@@ -9,6 +9,7 @@ set shiftwidth=4
 set noexpandtab
 set backspace=indent,eol,start
 set mouse=a
+set clipboard+=unnamedplus
 
 syntax on
 set noswapfile
@@ -23,8 +24,14 @@ set noundofile
 set encoding=utf-8
 
 colorscheme palenight
+if (has("nvim"))
+    let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+endif
 
-let g:plug_url_format = 'git@hobo0xcc:%s.git'
+highlight Normal ctermbg=NONE
+highlight nonText ctermbg=NONE
+
+let g:plug_url_format = 'git@github-hobo0xcc:%s.git'
 
 call plug#begin('~/VimPlugin')
 
@@ -52,6 +59,9 @@ Plug 'Shougo/deol.nvim'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'ziglang/zig.vim'
 Plug 'elixir-editors/vim-elixir'
+Plug 'Rip-Rip/clang_complete'
+Plug 'zah/nim.vim'
+Plug 'cohama/lexima.vim'
 
 call plug#end()
 
@@ -82,6 +92,8 @@ au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
 let g:racer_cmd='C:/Users/slime/.cargo/bin/racer'
 
+let g:clang_library_path='/usr/lib/llvm-6.0/lib'
+
 nnoremap <space>t :NERDTreeToggle<CR>
 nnoremap <space>/ :vsplit<CR>
 nnoremap <space>- :split<CR>
@@ -109,15 +121,12 @@ inoremap <C-s> <Down>
 inoremap <C-d> <Right>
 inoremap <CR> <Return>
 nnoremap <C-c> i
-nnoremap <space>rc :e C:\Users\slime\AppData\Local\nvim\init.vim<CR>
+nnoremap <space>rc :e ~/.config/nvim/init.vim<CR>
 nnoremap <space><space> ldiwh
-inoremap { {}<Left>
-inoremap {<Enter> {}<Left><CR><ESC><S-o>
-inoremap ( ()<Left>
-inoremap " ""<Left>
-inoremap ' ''<Left>
 inoremap <S-Left> <ESC>^i
 inoremap <S-Right> <ESC>$i<Right>
 nnoremap <space>n :bnext<CR>
 nnoremap <space>b :bprev<CR>
 tnoremap <C-c> <C-\><C-n>
+imap <S-Bs> <Del>
+nnoremap <space>j :w !trans -b -sl=en -tl=ja<CR>
